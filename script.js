@@ -3,24 +3,25 @@
 
 // --- Dark / Light theme toggle ---
 const themeToggle = document.getElementById("themeToggle");
+const themeIcon = themeToggle.querySelector("use");
 const root = document.documentElement;
 
 // Load saved theme (default is dark)
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "light") {
   root.setAttribute("data-theme", "light");
-  themeToggle.textContent = "☀️";
+  themeIcon.setAttribute("href", "#i-sun");
 }
 
 themeToggle.addEventListener("click", () => {
   const isLight = root.getAttribute("data-theme") === "light";
   if (isLight) {
     root.removeAttribute("data-theme");
-    themeToggle.textContent = "🌙";
+    themeIcon.setAttribute("href", "#i-moon");
     localStorage.setItem("theme", "dark");
   } else {
     root.setAttribute("data-theme", "light");
-    themeToggle.textContent = "☀️";
+    themeIcon.setAttribute("href", "#i-sun");
     localStorage.setItem("theme", "light");
   }
 });

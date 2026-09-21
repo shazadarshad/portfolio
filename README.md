@@ -4,6 +4,8 @@ My personal portfolio website, built from scratch using **HTML, CSS, and JavaScr
 This is one of my first bigger web projects and I built it to show my skills,
 certifications, and the projects I'm working on as I learn.
 
+🔗 **Live site:** [shazadar.com](https://shazadar.com)
+
 ## ✨ Features
 
 - Clean, modern and fully **responsive** design (works on mobile and desktop)
@@ -36,7 +38,7 @@ No installation needed — it's a static website.
 
 1. Download or clone this repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/portfolio.git
+   git clone https://github.com/shazadarshad/portfolio.git
    ```
 2. Open the `index.html` file in your web browser.
 
@@ -44,9 +46,7 @@ That's it! 🎉
 
 ## 🌍 Live Demo
 
-You can host this for free with **GitHub Pages**:
-Go to your repo → **Settings** → **Pages** → set the branch to `main` and folder to `/root`.
-Your site will be live at `https://YOUR_USERNAME.github.io/portfolio/`
+The site is live at **[shazadar.com](https://shazadar.com)**, deployed with Vercel.
 
 ## 📬 Contact
 

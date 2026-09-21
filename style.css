@@ -436,18 +436,16 @@ header {
   box-shadow: 0 10px 30px color-mix(in srgb, var(--accent) 20%, transparent);
 }
 .featured-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   background: color-mix(in srgb, var(--accent) 18%, transparent);
   color: var(--accent);
   font-size: 0.75rem;
   font-weight: 600;
   padding: 4px 12px;
   border-radius: 20px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  margin-bottom: 14px;
 }
 .featured-badge .icon {
   width: 13px;
@@ -703,5 +701,61 @@ footer {
   }
   section {
     padding: 70px 20px;
+  }
+  .hero {
+    min-height: auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .hero::before {
+    width: 300px;
+    height: 300px;
+    right: -20%;
+  }
+  .edu-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* ===== Small phones ===== */
+@media (max-width: 480px) {
+  section {
+    padding: 56px 16px;
+  }
+  .navbar {
+    padding: 14px 16px;
+  }
+  .hero {
+    padding: 0 16px 40px;
+  }
+  .hero-buttons {
+    width: 100%;
+  }
+  .hero-buttons .btn {
+    flex: 1;
+    text-align: center;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .skills-grid,
+  .projects-grid,
+  .edu-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .contact-form .btn {
+    width: 100%;
+  }
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
   }
 }

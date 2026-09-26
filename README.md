@@ -50,7 +50,7 @@ The site is live at **[shazadar.com](https://shazadar.com)**, deployed with Verc
 
 ## 📬 Contact
 
-- **Email:** shazad.arshad189@gmail.com
+- **Email:** hello@shazadarshad.com
 - **LinkedIn:** [linkedin.com/in/shazadarshad](https://linkedin.com/in/shazadarshad)
 - **Location:** Colombo, Sri Lanka
 

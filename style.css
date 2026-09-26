@@ -1,5 +1,18 @@
 /* ===== Theme Variables ===== */
+/* Default is the bright / light theme. Dark mode is opt-in via the toggle. */
 :root {
+  --bg: #ffffff;
+  --bg-alt: #f4f6fc;
+  --card: #ffffff;
+  --text: #141a2e;
+  --text-muted: #55607a;
+  --accent: #5b52f0;
+  --accent-2: #0091ea;
+  --border: #e4e8f2;
+  --shadow: rgba(90, 100, 140, 0.16);
+}
+
+[data-theme="dark"] {
   --bg: #0a0e1a;
   --bg-alt: #111827;
   --card: #161d2e;
@@ -9,18 +22,6 @@
   --accent-2: #00d4ff;
   --border: #26304a;
   --shadow: rgba(0, 0, 0, 0.4);
-}
-
-[data-theme="light"] {
-  --bg: #f7f8fc;
-  --bg-alt: #ffffff;
-  --card: #ffffff;
-  --text: #1a1f36;
-  --text-muted: #5a6478;
-  --accent: #6c63ff;
-  --accent-2: #0091ea;
-  --border: #e2e6f0;
-  --shadow: rgba(100, 110, 140, 0.15);
 }
 
 /* ===== Base ===== */

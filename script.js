@@ -6,23 +6,26 @@ const themeToggle = document.getElementById("themeToggle");
 const themeIcon = themeToggle.querySelector("use");
 const root = document.documentElement;
 
-// Load saved theme (default is dark)
+// Load saved theme (default is the bright / light theme)
 const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light") {
-  root.setAttribute("data-theme", "light");
+if (savedTheme === "dark") {
+  root.setAttribute("data-theme", "dark");
   themeIcon.setAttribute("href", "#i-sun");
+} else {
+  // Light by default: show the moon (click to switch to dark).
+  themeIcon.setAttribute("href", "#i-moon");
 }
 
 themeToggle.addEventListener("click", () => {
-  const isLight = root.getAttribute("data-theme") === "light";
-  if (isLight) {
+  const isDark = root.getAttribute("data-theme") === "dark";
+  if (isDark) {
     root.removeAttribute("data-theme");
     themeIcon.setAttribute("href", "#i-moon");
-    localStorage.setItem("theme", "dark");
-  } else {
-    root.setAttribute("data-theme", "light");
-    themeIcon.setAttribute("href", "#i-sun");
     localStorage.setItem("theme", "light");
+  } else {
+    root.setAttribute("data-theme", "dark");
+    themeIcon.setAttribute("href", "#i-sun");
+    localStorage.setItem("theme", "dark");
   }
 });
 

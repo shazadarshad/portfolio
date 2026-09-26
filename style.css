@@ -546,6 +546,23 @@ header {
   color: var(--text-muted);
   font-size: 0.9rem;
 }
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.cert-link .icon {
+  width: 15px;
+  height: 15px;
+}
+.cert-link:hover {
+  opacity: 0.75;
+}
 
 /* ===== Contact ===== */
 .contact-intro {

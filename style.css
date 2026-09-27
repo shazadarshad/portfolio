@@ -243,12 +243,13 @@ header {
 }
 
 /* ===== Hero code window ===== */
+/* Always dark (like a real editor) so it reads well on the light theme too. */
 .code-window {
   width: 100%;
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: #0d1117;
+  border: 1px solid #2b3648;
   border-radius: 14px;
-  box-shadow: 0 20px 50px var(--shadow);
+  box-shadow: 0 20px 50px rgba(13, 17, 23, 0.35);
   overflow: hidden;
   font-family: "Fira Code", "Consolas", monospace;
 }
@@ -257,8 +258,8 @@ header {
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
-  background: color-mix(in srgb, var(--text) 6%, transparent);
-  border-bottom: 1px solid var(--border);
+  background: #161b26;
+  border-bottom: 1px solid #2b3648;
 }
 .code-bar .dot {
   width: 12px;
@@ -272,7 +273,7 @@ header {
 .code-file {
   margin-left: 8px;
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: #8b96a8;
 }
 .code-body {
   margin: 0;
@@ -280,13 +281,13 @@ header {
   font-size: 0.85rem;
   line-height: 1.8;
   overflow-x: auto;
-  color: var(--text);
+  color: #d7dde8;
 }
-.code-body .c-key { color: #c678dd; }
-.code-body .c-var { color: #61afef; }
-.code-body .c-prop { color: #e06c75; }
-.code-body .c-str { color: #98c379; }
-.code-body .c-bool { color: #d19a66; }
+.code-body .c-key { color: #d2a8ff; }
+.code-body .c-var { color: #79c0ff; }
+.code-body .c-prop { color: #ff7b72; }
+.code-body .c-str { color: #a5d6ff; }
+.code-body .c-bool { color: #ffa657; }
 
 /* ===== Buttons ===== */
 .btn {

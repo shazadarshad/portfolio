@@ -864,3 +864,192 @@ footer {
     height: 42px;
   }
 }
+
+
+/* =====================================================================
+   UI / UX POLISH LAYER
+   Refinements layered on top of the base styles above. Kept in one block
+   so the original structure stays intact and easy to reason about.
+   ===================================================================== */
+
+/* --- Global niceties --- */
+::selection {
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  color: var(--text);
+}
+
+html {
+  scroll-padding-top: 90px; /* so anchored sections aren't hidden under the sticky nav */
+}
+
+/* A slim, themed scrollbar (WebKit browsers). */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent) 45%, var(--border));
+  border-radius: 10px;
+  border: 2px solid var(--bg-alt);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Consistent, visible keyboard focus everywhere (accessibility). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* --- Section titles: add an accent underline for stronger hierarchy --- */
+.section-title {
+  position: relative;
+  letter-spacing: -0.02em;
+}
+.section-title::after {
+  content: "";
+  flex: none;
+  width: 46px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  margin-left: 6px;
+}
+.section-title.center::after {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 0;
+}
+
+/* --- Cards: layered shadow + smoother, richer hover --- */
+.edu-card,
+.skill-card,
+.project-card,
+.about-card {
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--shadow) 60%, transparent),
+              0 6px 20px color-mix(in srgb, var(--shadow) 40%, transparent);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.28s ease,
+              border-color 0.28s ease;
+  will-change: transform;
+}
+.edu-card:hover,
+.skill-card:hover,
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 34px color-mix(in srgb, var(--shadow) 65%, transparent);
+}
+
+/* Accent strip that grows on hover for project cards. */
+.project-card {
+  overflow: hidden;
+}
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.project-card:hover::before,
+.project-card.featured::before {
+  transform: scaleX(1);
+}
+
+/* --- Skill cards: centered with a soft accent halo behind the icon --- */
+.skill-card {
+  text-align: center;
+}
+.skill-icon {
+  justify-content: center;
+  height: auto;
+  margin-bottom: 18px;
+  position: relative;
+}
+.skill-icon::before {
+  content: "";
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
+  z-index: 0;
+}
+.skill-icon img {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Soft-skill chips: gentle hover --- */
+.soft-skills span {
+  transition: transform 0.2s ease, background 0.2s ease;
+  cursor: default;
+}
+.soft-skills span:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* --- Buttons: shared easing + accessible active state --- */
+.btn {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* --- Contact form: focus glow --- */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* --- Nav avatar: subtle interactive feel --- */
+.logo-avatar {
+  transition: transform 0.25s ease;
+}
+.logo:hover .logo-avatar {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+/* --- Staggered scroll-reveal for grid children --- */
+.reveal.visible .edu-card,
+.reveal.visible .skill-card,
+.reveal.visible .project-card {
+  animation: card-rise 0.5s ease both;
+}
+.reveal.visible .edu-card:nth-child(2),
+.reveal.visible .skill-card:nth-child(2),
+.reveal.visible .project-card:nth-child(2) { animation-delay: 0.06s; }
+.reveal.visible .edu-card:nth-child(3),
+.reveal.visible .skill-card:nth-child(3),
+.reveal.visible .project-card:nth-child(3) { animation-delay: 0.12s; }
+.reveal.visible .edu-card:nth-child(4),
+.reveal.visible .skill-card:nth-child(4),
+.reveal.visible .project-card:nth-child(4) { animation-delay: 0.18s; }
+@keyframes card-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Respect reduced-motion preferences --- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

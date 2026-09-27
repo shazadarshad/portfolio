@@ -371,6 +371,8 @@ header {
   height: 90px;
   margin: 0 auto 16px;
   border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
   color: #fff;
   font-size: 2rem;

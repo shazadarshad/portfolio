@@ -48,7 +48,7 @@ navLinks.querySelectorAll("a").forEach((link) => {
 const contactForm = document.getElementById("contactForm");
 const formStatus = document.getElementById("formStatus");
 
-contactForm.addEventListener("submit", (e) => {
+contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const name = document.getElementById("name").value.trim();
@@ -70,11 +70,33 @@ contactForm.addEventListener("submit", (e) => {
     return;
   }
 
-  // Since this is a static site, we just show a success message.
-  // (Later this can be connected to a real email service like Formspree.)
-  formStatus.textContent = "Thanks " + name + "! Your message has been noted. 🎉";
-  formStatus.className = "form-status success";
-  contactForm.reset();
+  const submitBtn = contactForm.querySelector("button[type='submit']");
+
+  formStatus.textContent = "Sending…";
+  formStatus.className = "form-status";
+  if (submitBtn) submitBtn.disabled = true;
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      formStatus.textContent = "Thanks " + name + "! Your message has been sent. 🎉";
+      formStatus.className = "form-status success";
+      contactForm.reset();
+    } else {
+      formStatus.textContent = "Sorry, something went wrong. Please email me directly.";
+      formStatus.className = "form-status error";
+    }
+  } catch {
+    formStatus.textContent = "Network error. Please check your connection and try again.";
+    formStatus.className = "form-status error";
+  } finally {
+    if (submitBtn) submitBtn.disabled = false;
+  }
 });
 
 // --- Set current year in footer ---

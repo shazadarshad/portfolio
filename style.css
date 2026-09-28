@@ -2,25 +2,27 @@
 /* Default is the bright / light theme. Dark mode is opt-in via the toggle. */
 :root {
   --bg: #ffffff;
-  --bg-alt: #f4f6fc;
+  --bg-alt: #f6f7f9;
   --card: #ffffff;
-  --text: #141a2e;
-  --text-muted: #55607a;
-  --accent: #5b52f0;
-  --accent-2: #0091ea;
-  --border: #e4e8f2;
-  --shadow: rgba(90, 100, 140, 0.16);
+  --text: #1a1d24;
+  --text-muted: #5b6472;
+  --accent: #3f4ba8;
+  --accent-2: #3f4ba8;
+  --accent-soft: #eef0fb;
+  --border: #e7e9ef;
+  --shadow: rgba(26, 29, 36, 0.10);
 }
 
 [data-theme="dark"] {
-  --bg: #0a0e1a;
-  --bg-alt: #111827;
-  --card: #161d2e;
-  --text: #e6e9ef;
-  --text-muted: #9aa4b8;
-  --accent: #6c63ff;
-  --accent-2: #00d4ff;
-  --border: #26304a;
+  --bg: #0f1219;
+  --bg-alt: #151a24;
+  --card: #171d29;
+  --text: #e8eaef;
+  --text-muted: #97a0b0;
+  --accent: #8b93f0;
+  --accent-2: #8b93f0;
+  --accent-soft: #1c2233;
+  --border: #262d3c;
   --shadow: rgba(0, 0, 0, 0.4);
 }
 
@@ -188,19 +190,6 @@ header {
   justify-content: center;
   max-width: 460px;
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 10%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, var(--accent), transparent 70%);
-  opacity: 0.15;
-  border-radius: 50%;
-  filter: blur(40px);
-  z-index: -1;
-}
 
 .hero-greeting {
   color: var(--accent);
@@ -210,11 +199,9 @@ header {
 .hero-name {
   font-size: clamp(2.5rem, 7vw, 4.5rem);
   font-weight: 700;
-  line-height: 1.1;
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text);
 }
 .hero-title {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
@@ -804,11 +791,6 @@ footer {
     width: 100%;
     justify-content: flex-start;
   }
-  .hero::before {
-    width: 300px;
-    height: 300px;
-    right: -20%;
-  }
   .edu-card {
     flex-direction: column;
     gap: 12px;
@@ -913,11 +895,12 @@ select:focus-visible {
 .section-title::after {
   content: "";
   flex: none;
-  width: 46px;
-  height: 3px;
-  border-radius: 3px;
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
-  margin-left: 6px;
+  width: 40px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  opacity: 0.5;
+  margin-left: 8px;
 }
 .section-title.center::after {
   position: absolute;
@@ -942,8 +925,9 @@ select:focus-visible {
 .edu-card:hover,
 .skill-card:hover,
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 34px color-mix(in srgb, var(--shadow) 65%, transparent);
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--shadow) 55%, transparent);
 }
 
 /* Accent strip that grows on hover for project cards. */
@@ -956,8 +940,8 @@ select:focus-visible {
   top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  height: 2px;
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -967,7 +951,7 @@ select:focus-visible {
   transform: scaleX(1);
 }
 
-/* --- Skill cards: centered with a soft accent halo behind the icon --- */
+/* --- Skill cards: centered, restrained (no halo) --- */
 .skill-card {
   text-align: center;
 }
@@ -976,19 +960,6 @@ select:focus-visible {
   height: auto;
   margin-bottom: 18px;
   position: relative;
-}
-.skill-icon::before {
-  content: "";
-  position: absolute;
-  width: 74px;
-  height: 74px;
-  border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
-  z-index: 0;
-}
-.skill-icon img {
-  position: relative;
-  z-index: 1;
 }
 
 /* --- Soft-skill chips: gentle hover --- */

@@ -3,7 +3,7 @@
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { Bot, Code2, Layers, Lightbulb, MessageCircle, Repeat, Sparkles, Users, Zap } from "lucide-react";
 import Image from "next/image";
-import { useState, type ComponentType, type SVGProps } from "react";
+import { useState, type ComponentType, type KeyboardEvent, type SVGProps } from "react";
 import { aiTools, skills, softSkills, stack } from "@/content/site";
 import { SectionHeading } from "./ui";
 
@@ -53,6 +53,21 @@ export function Skills() {
   const [tab, setTab] = useState(tabs[0].id);
   const current = tabs.find((t) => t.id === tab)!;
 
+  // Arrow / Home / End keys move between tabs (WAI-ARIA tabs pattern).
+  const onTabKey = (e: KeyboardEvent<HTMLButtonElement>) => {
+    const i = tabs.findIndex((t) => t.id === tab);
+    const next =
+      e.key === "ArrowRight" ? (i + 1) % tabs.length
+      : e.key === "ArrowLeft" ? (i - 1 + tabs.length) % tabs.length
+      : e.key === "Home" ? 0
+      : e.key === "End" ? tabs.length - 1
+      : -1;
+    if (next < 0) return;
+    e.preventDefault();
+    setTab(tabs[next].id);
+    document.getElementById(`tab-${tabs[next].id}`)?.focus();
+  };
+
   return (
     <section id="skills" className="relative isolate overflow-hidden bg-[#eceef5] px-6 py-24 md:py-32">
       {/* Gradient mesh backdrop */}
@@ -82,9 +97,11 @@ export function Skills() {
                     id={`tab-${id}`}
                     aria-selected={selected}
                     aria-controls={`panel-${id}`}
+                    tabIndex={selected ? 0 : -1}
                     onClick={() => setTab(id)}
+                    onKeyDown={onTabKey}
                     className={`relative flex shrink-0 items-center gap-1.5 rounded-full px-3 py-2 text-[13px] font-semibold transition-colors duration-300 sm:px-5 ${
-                      selected ? "text-ink" : "text-ink/60 hover:text-ink"
+                      selected ? "text-ink" : "text-ink/85 hover:text-ink"
                     }`}
                   >
                     {selected && (
@@ -104,12 +121,10 @@ export function Skills() {
         </LayoutGroup>
 
         <div className="relative mt-10 min-h-[250px]">
+          <div id={`panel-${current.id}`} role="tabpanel" aria-labelledby={`tab-${current.id}`} tabIndex={0}>
           <AnimatePresence mode="wait">
             <motion.ul
               key={current.id}
-              id={`panel-${current.id}`}
-              role="tabpanel"
-              aria-labelledby={`tab-${current.id}`}
               className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
               initial="hidden"
               animate="show"
@@ -144,6 +159,7 @@ export function Skills() {
               ))}
             </motion.ul>
           </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>

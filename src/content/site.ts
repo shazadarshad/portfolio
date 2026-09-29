@@ -140,8 +140,8 @@ export const projects: Project[] = [
     name: "Personal Portfolio",
     tagline: "This very website",
     description:
-      "Built from scratch with HTML, CSS, and JavaScript, featuring a dark/light theme and responsive design.",
-    tags: ["HTML", "CSS", "JavaScript"],
+      "Rebuilt from my original HTML, CSS, and JavaScript site into a Next.js app with an Apple-inspired design, scroll animations, full SEO with structured data, and a mobile-first responsive layout.",
+    tags: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
     live: "https://www.shazadarshad.com",
     code: "https://github.com/shazadarshad/portfolio",
   },

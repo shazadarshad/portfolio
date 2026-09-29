@@ -33,7 +33,7 @@ export function Certifications() {
                   >
                     {c.issuer}
                   </span>
-                  <span className="text-[13px] text-ink-3">{c.issued}</span>
+                  <span className="text-[13px] text-ink-2">{c.issued}</span>
                 </div>
                 <h3 className="mt-6 text-[19px] font-semibold leading-snug tracking-tight text-ink">{c.title}</h3>
                 <p className="mt-1.5 text-[14px] text-ink-2">

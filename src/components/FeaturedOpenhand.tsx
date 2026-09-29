@@ -125,7 +125,7 @@ export function FeaturedOpenhand() {
                           </span>
                           <span className="min-w-0">
                             <span className="block truncate text-[clamp(5px,0.95vw,11px)] font-medium text-ink">{t}</span>
-                            <span className="block text-[clamp(5px,0.85vw,9px)] text-ink-3">{s}</span>
+                            <span className="block text-[clamp(5px,0.85vw,9px)] text-ink-2">{s}</span>
                           </span>
                         </li>
                       ))}

@@ -3,32 +3,10 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Copy, Heart, Moon, ShoppingBag, Star, Sun } from "lucide-react";
 
-const round = (n: number) => Math.round(n * 100) / 100;
-
-/** Halftone vortex — a nod to Durowave's dot-tunnel, drawn procedurally. */
+/** Halftone vortex (pre-rendered to /art/halftone.svg to keep the DOM light). */
 function Halftone() {
-  const dots: { x: number; y: number; r: number }[] = [];
-  const rings = 16;
-  for (let k = 1; k <= rings; k++) {
-    const radius = 10 + k * 17;
-    const count = Math.round((2 * Math.PI * radius) / 11);
-    for (let i = 0; i < count; i++) {
-      const a = (i / count) * Math.PI * 2 + k * 0.22;
-      const swirl = (1 + Math.sin(a * 2 + k * 0.55)) / 2;
-      const r = 0.4 + 3.6 * swirl * (k / rings);
-      if (r < 0.7) continue;
-      dots.push({ x: round(300 + Math.cos(a) * radius), y: round(300 + Math.sin(a) * radius * 0.62), r: round(r) });
-    }
-  }
-  return (
-    <svg viewBox="0 60 600 480" className="h-full w-full" aria-hidden="true">
-      <g fill="#1d1d1f">
-        {dots.map((d, i) => (
-          <circle key={i} cx={d.x} cy={d.y} r={d.r} />
-        ))}
-      </g>
-    </svg>
-  );
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src="/art/halftone.svg" alt="" loading="lazy" decoding="async" className="h-full w-full object-contain" />;
 }
 
 export function TalentHubArt() {

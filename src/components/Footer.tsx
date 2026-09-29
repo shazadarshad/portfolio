@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { contact, nav, profile } from "@/content/site";
-import { SMark } from "./SMark";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -7,10 +7,14 @@ export function Footer() {
     <footer className="bg-canvas px-6 text-[13px] text-ink-2">
       <div className="mx-auto max-w-[1100px] py-12">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-          <a href="#top" className="flex items-center gap-3 text-ink" aria-label="Back to top">
-            <span className="grid size-10 place-items-center rounded-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.08)]">
-              <SMark variant="flat" className="size-4" />
-            </span>
+          <a href="#top" className="flex items-center gap-3 text-ink" title="Back to top">
+            <Image
+              src={profile.photo}
+              alt=""
+              width={40}
+              height={40}
+              className="size-10 rounded-full object-cover shadow-[0_2px_10px_rgba(0,0,0,0.08)] ring-2 ring-white"
+            />
             <span className="text-[14px] font-semibold uppercase tracking-[0.3em]">{profile.firstName}</span>
           </a>
           <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">

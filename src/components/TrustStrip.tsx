@@ -12,7 +12,7 @@ export function TrustStrip() {
   return (
     <section aria-label="Certified by" className="border-t border-black/[0.04] bg-white px-6 py-16 md:py-20">
       <Reveal>
-        <p className="eyebrow text-center text-ink-3">Learning backed by</p>
+        <p className="eyebrow text-center text-ink-2">Learning backed by</p>
         <ul className="mx-auto mt-9 grid max-w-[900px] grid-cols-2 place-items-center gap-y-8 md:grid-cols-4">
           {marks.map((m) => (
             <li

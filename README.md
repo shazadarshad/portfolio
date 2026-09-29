@@ -1,59 +1,53 @@
-# Shazad Arshad — Personal Portfolio 🌐
+# Shazad Arshad — Portfolio
 
-My personal portfolio website, built from scratch using **HTML, CSS, and JavaScript**.
-This is one of my first bigger web projects and I built it to show my skills,
-certifications, and the projects I'm working on as I learn.
+Personal portfolio for [Shazad Arshad](https://www.shazadarshad.com), rebuilt in an Apple-inspired, Durowave-style design language: monochrome surfaces, one typeface (Inter), frosted-glass cards, alternating light/dark sections and subtle scroll motion.
 
-🔗 **Live site:** [shazadar.com](https://shazadar.com)
+**Stack:** Next.js 16 (App Router, static) · React 19 · Tailwind CSS v4 · Framer Motion · Lucide icons
 
-## ✨ Features
+## Getting started
 
-- Clean, modern and fully **responsive** design (works on mobile and desktop)
-- 🌙 **Dark / Light theme** toggle (your choice is saved in the browser)
-- Smooth **scroll animations** as you move down the page
-- 📱 Mobile-friendly navigation menu
-- ✉️ Contact form with front-end validation
-- ⬆️ "Back to top" button
-
-## 🛠️ Built With
-
-- HTML5
-- CSS3 (Flexbox, Grid, CSS variables)
-- Vanilla JavaScript (no frameworks)
-- Google Fonts (Poppins & Inter)
-
-## 📂 Project Structure
-
-```
-portfolio/
-├── index.html      # Page structure and content
-├── style.css       # All the styling and theme colors
-├── script.js       # Theme toggle, menu, form, animations
-└── README.md       # This file
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint
 ```
 
-## 🚀 How to Run
+## Editing content
 
-No installation needed — it's a static website.
+All copy, links, projects, education and certifications live in one file:
 
-1. Download or clone this repository:
-   ```bash
-   git clone https://github.com/shazadarshad/portfolio.git
-   ```
-2. Open the `index.html` file in your web browser.
+```
+src/content/site.ts
+```
 
-That's it! 🎉
+Components read from it, so you never need to touch layout code to update text.
 
-## 🌍 Live Demo
+## Structure
 
-The site is live at **[shazadar.com](https://shazadar.com)**, deployed with Vercel.
+```
+src/
+  app/            layout, page, global styles + design tokens, icon
+  components/     one file per section (Hero, Skills, FeaturedNeurativo, …)
+  content/site.ts all portfolio content
+public/
+  profile.png     portrait
+  icons/          self-hosted tech logos (devicon)
+```
 
-## 📬 Contact
+## Design tokens
 
-- **Email:** hello@shazadarshad.com
-- **LinkedIn:** [linkedin.com/in/shazadarshad](https://linkedin.com/in/shazadarshad)
-- **Location:** Colombo, Sri Lanka
+Defined in `src/app/globals.css` under `@theme`:
 
----
+| Token | Value | Use |
+|---|---|---|
+| `ink` | `#1d1d1f` | primary text, dark buttons |
+| `ink-2` | `#6e6e73` | secondary text |
+| `canvas` | `#f5f5f7` | light section background |
+| `link` / `link-dark` | `#0066cc` / `#2997ff` | text links on light / dark |
 
-⭐ If you like this project, feel free to star the repo!
+Display headings use the `.display` class (600 weight, −0.028em tracking) everywhere for a consistent hierarchy.
+
+## Deploy
+
+Zero-config on [Vercel](https://vercel.com/new): import the repo and deploy.

@@ -11,10 +11,15 @@ import { Nav } from "@/components/Nav";
 import { ProjectTiles } from "@/components/ProjectTiles";
 import { Skills } from "@/components/Skills";
 import { TrustStrip } from "@/components/TrustStrip";
+import { jsonLd } from "@/content/seo";
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-14 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white"

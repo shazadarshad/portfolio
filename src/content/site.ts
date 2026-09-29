@@ -11,7 +11,7 @@ export const profile = {
   greeting: "Hi, my name is",
   location: "Colombo, Sri Lanka",
   languages: ["English", "Sinhala", "Tamil"],
-  photo: "/profile.png",
+  photo: "/profile.jpg",
   intro: {
     before:
       "A motivated, self-taught developer from Colombo, Sri Lanka with a passion for technology and software development. I recently built ",

@@ -1,10 +1,10 @@
 "use client";
 
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
-import { Code2, Layers, Lightbulb, MessageCircle, Repeat, Sparkles, Users, Zap } from "lucide-react";
+import { Bot, Code2, Layers, Lightbulb, MessageCircle, Repeat, Sparkles, Users, Zap } from "lucide-react";
 import Image from "next/image";
 import { useState, type ComponentType, type SVGProps } from "react";
-import { skills, softSkills, stack } from "@/content/site";
+import { aiTools, skills, softSkills, stack } from "@/content/site";
 import { SectionHeading } from "./ui";
 
 type Card = {
@@ -26,7 +26,7 @@ const tabs: { id: string; label: string; Icon: typeof Code2; cards: Card[] }[] =
   },
   {
     id: "stack",
-    label: "Project Stack",
+    label: "Stack",
     Icon: Layers,
     cards: stack.map((t) => ({
       key: t.name,
@@ -34,6 +34,12 @@ const tabs: { id: string; label: string; Icon: typeof Code2; cards: Card[] }[] =
       body: `Used in ${t.usedIn.join(", ")}`,
       icon: t.icon,
     })),
+  },
+  {
+    id: "ai",
+    label: "AI Tools",
+    Icon: Bot,
+    cards: aiTools.map((s) => ({ key: s.name, title: s.name, body: s.description, icon: s.icon })),
   },
   {
     id: "soft",
@@ -65,7 +71,7 @@ export function Skills() {
             <div
               role="tablist"
               aria-label="Skill categories"
-              className="glass inline-flex max-w-full gap-1 overflow-x-auto rounded-full p-1"
+              className="glass inline-flex max-w-full gap-0.5 overflow-x-auto rounded-full p-1 [scrollbar-width:none] sm:gap-1"
             >
               {tabs.map(({ id, label, Icon }) => {
                 const selected = id === tab;
@@ -77,7 +83,7 @@ export function Skills() {
                     aria-selected={selected}
                     aria-controls={`panel-${id}`}
                     onClick={() => setTab(id)}
-                    className={`relative flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-semibold transition-colors duration-300 sm:px-5 ${
+                    className={`relative flex shrink-0 items-center gap-1.5 rounded-full px-3 py-2 text-[13px] font-semibold transition-colors duration-300 sm:px-5 ${
                       selected ? "text-ink" : "text-ink/60 hover:text-ink"
                     }`}
                   >
@@ -88,7 +94,7 @@ export function Skills() {
                         transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}
-                    <Icon aria-hidden className="relative size-3.5" strokeWidth={2.2} />
+                    <Icon aria-hidden className="relative hidden size-3.5 sm:block" strokeWidth={2.2} />
                     <span className="relative">{label}</span>
                   </button>
                 );

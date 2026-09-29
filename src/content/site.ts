@@ -57,6 +57,15 @@ export const skills: Skill[] = [
   { name: "Git & GitHub", icon: "/icons/git.svg", description: "Tracking my code and sharing projects with the world." },
 ];
 
+/** AI tools used day to day. Edit the descriptions to match how you actually use each one. */
+export const aiTools: Skill[] = [
+  { name: "Claude", icon: "/icons/ai-claude.svg", description: "Reasoning through problems, reviewing code, and writing clear docs." },
+  { name: "ChatGPT", icon: "/icons/ai-chatgpt.svg", description: "Brainstorming ideas, learning new concepts, and quick answers." },
+  { name: "Codex", icon: "/icons/ai-codex.svg", description: "Generating and refactoring code straight from the terminal." },
+  { name: "Grok", icon: "/icons/ai-grok.svg", description: "Research and staying up to date with the latest in tech." },
+  { name: "Kiro", icon: "/icons/ai-kiro.svg", description: "Spec-driven development — planning, building, and shipping features." },
+];
+
 export const softSkills = [
   "Creative Thinking",
   "Communication",

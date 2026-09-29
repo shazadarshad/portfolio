@@ -52,7 +52,7 @@ export function Nav() {
           aria-label="Primary"
           className="mx-auto flex h-12 max-w-[1100px] items-center justify-between px-5 md:px-6"
         >
-          <a href="#top" className="flex items-center text-ink" aria-label={`${profile.name} — home`}>
+          <a href="#top" className="-my-2 flex items-center py-2 text-ink" aria-label={`${profile.name} — home`}>
             <span className="text-[15px] font-semibold uppercase tracking-[0.32em]">{profile.firstName}</span>
           </a>
 

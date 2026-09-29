@@ -26,15 +26,15 @@ export function About() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <dl className="mt-10 divide-y divide-black/[0.08] border-y border-black/[0.08] text-[17px]">
+            <dl className="mt-10 divide-y divide-black/[0.08] border-y border-black/[0.08] text-[15px] sm:text-[17px]">
               <div className="flex items-center gap-4 py-4">
                 <MapPin aria-hidden className="size-5 text-ink-3" strokeWidth={1.6} />
-                <dt className="w-28 text-ink-2">Location</dt>
+                <dt className="w-24 shrink-0 text-ink-2 sm:w-28">Location</dt>
                 <dd className="font-medium text-ink">{profile.location}</dd>
               </div>
               <div className="flex items-center gap-4 py-4">
                 <Languages aria-hidden className="size-5 text-ink-3" strokeWidth={1.6} />
-                <dt className="w-28 text-ink-2">Languages</dt>
+                <dt className="w-24 shrink-0 text-ink-2 sm:w-28">Languages</dt>
                 <dd className="font-medium text-ink">{profile.languages.join(", ")}</dd>
               </div>
             </dl>

@@ -47,7 +47,7 @@ export function ArrowLink({
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`group inline-flex items-center gap-0.5 ${color} ${sizes[size]} font-normal hover:underline underline-offset-4 decoration-1`}
+      className={`group -my-2 inline-flex items-center gap-0.5 py-2 ${color} ${sizes[size]} font-normal hover:underline underline-offset-4 decoration-1`}
     >
       {children}
       <ChevronRight

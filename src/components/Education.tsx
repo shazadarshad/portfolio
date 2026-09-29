@@ -21,7 +21,7 @@ function Network() {
     <svg
       viewBox="0 0 1000 600"
       preserveAspectRatio="xMidYMid slice"
-      className="absolute inset-0 h-full w-full opacity-[0.22]"
+      className="absolute inset-0 h-full w-full opacity-[0.12] md:opacity-[0.22]"
       aria-hidden="true"
     >
       <g stroke="#ffffff" strokeWidth="0.6" strokeOpacity="0.5">

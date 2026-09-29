@@ -86,7 +86,7 @@ export function Skills() {
             <div
               role="tablist"
               aria-label="Skill categories"
-              className="glass inline-flex max-w-full gap-0.5 overflow-x-auto rounded-full p-1 [scrollbar-width:none] sm:gap-1"
+              className="glass grid w-full grid-cols-4 gap-0.5 rounded-full p-1 sm:inline-flex sm:w-auto sm:gap-1"
             >
               {tabs.map(({ id, label, Icon }) => {
                 const selected = id === tab;
@@ -100,7 +100,7 @@ export function Skills() {
                     tabIndex={selected ? 0 : -1}
                     onClick={() => setTab(id)}
                     onKeyDown={onTabKey}
-                    className={`relative flex shrink-0 items-center gap-1.5 rounded-full px-3 py-2 text-[13px] font-semibold transition-colors duration-300 sm:px-5 ${
+                    className={`relative flex min-w-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full px-1 py-2.5 text-[12px] font-semibold transition-colors duration-300 min-[380px]:text-[13px] sm:px-5 sm:py-2 ${
                       selected ? "text-ink" : "text-ink/85 hover:text-ink"
                     }`}
                   >

@@ -80,7 +80,7 @@ export function Hero() {
               <span className="absolute inset-0 animate-ping rounded-full bg-emerald-500/60" />
               <span className="relative size-2 rounded-full bg-emerald-500" />
             </span>
-            Open to opportunities · {profile.location}
+            Open to opportunities<span className="hidden sm:inline"> · {profile.location}</span>
           </motion.p>
         )}
       </motion.div>
